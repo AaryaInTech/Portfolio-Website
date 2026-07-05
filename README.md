@@ -104,9 +104,14 @@ Returns the complete portfolio data including skills, projects, and certificatio
 ```json
 {
   "skills": {
-    "core": ["Python", "React", "JavaScript", ...],
-    "ml": ["TensorFlow", "PyTorch", ...],
-    "certifications": [...]
+    "Programming Languages": ["Python", "JavaScript", "SQL", "C", "C++"],
+    "Frontend Development": ["React", "HTML5", "CSS3", "Tailwind CSS"],
+    "Backend Development": ["Node.js", "Express.js"],
+    "Databases": ["MongoDB", "Snowflake"],
+    "Data Analytics": ["Power BI", "Microsoft Excel", "IBM SPSS"],
+    "Machine Learning": ["TensorFlow", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
+    "Developer Tools": ["Git", "GitHub", "VS Code", "Streamlit"],
+    "certifications": ["AWS Academy Cloud Foundations", ...]
   },
   "projects": [...]
 }
@@ -389,7 +394,7 @@ MIT License - feel free to use this project as a template for your own portfolio
 
 ---
 
-**Built with ❤️ using modern web technologies**
+
 
 
 
