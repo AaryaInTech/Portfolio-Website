@@ -1,0 +1,74 @@
+{
+    "skills": {
+        "Programming Languages": [
+            "Python",
+            "JavaScript",
+            "SQL",
+            "C",
+            "C++"
+        ],
+        "Frontend Development": [
+            "React",
+            "HTML5",
+            "CSS3",
+            "Tailwind CSS"
+        ],
+        "Backend Development": [
+            "Node.js",
+            "Express.js"
+        ],
+        "Databases": [
+            "MongoDB",
+            "Snowflake"
+        ],
+        "Data Analytics": [
+            "Power BI",
+            "Microsoft Excel",
+            "IBM SPSS"
+        ],
+        "Machine Learning": [
+            "TensorFlow",
+            "Scikit-learn",
+            "Pandas",
+            "NumPy",
+            "Matplotlib"
+        ],
+        "Developer Tools": [
+            "Git",
+            "GitHub",
+            "VS Code",
+            "Streamlit"
+        ],
+        "certifications": [
+            "AWS Academy Cloud Foundations",
+            "AWS Academy Cloud Security Foundations",
+            "RH124 – Red Hat System Administration I",
+            "Database Foundations – Oracle Academy",
+            "Java Fundamentals – Oracle Academy",
+            "NPTEL – Introduction to Machine Learning"
+        ]
+    },
+    "projects": [
+        {
+            "title": "Food Delivery Surge Pricing Analyser",
+            "subtitle": "Snowflake Tech Stack",
+            "description": "Developed a real-time surge pricing analytics platform using Snowflake, Snowpark Python, SQL and Streamlit to simulate demand-based pricing. Generated synthetic delivery order data using Snowpark and stored it in Snowflake tables. Implemented SQL-based surge pricing logic using aggregations, CASE statements and time-window analysis. Built an interactive Streamlit dashboard to visualize delivery demand, surge multipliers and pricing trends.",
+            "tags": ["Snowflake", "Snowpark Python", "SQL", "Streamlit"],
+            "link": "https://github.com/AaryaInTech/Food-Delivery-Surge-Pricing-Analyzer"
+        },
+        {
+            "title": "AI-Driven Framework for Air Quality Prediction and Precautionary Recommendations",
+            "subtitle": "Python, TensorFlow, LSTM, Scikit-learn",
+            "description": "Developed an air quality prediction framework using LSTM and Multiple Linear Regression to forecast PM2.5, PM10, NO2, SO2, CO and O3 concentrations. Performed data preprocessing, normalization and feature engineering on environmental datasets to improve model performance. Achieved an R2 score of 0.967 for pollutant prediction and an adjusted R2 score of 0.881 for health impact assessment. Built a recommendation module that generated precautionary health advisories based on predicted AQI levels.",
+            "tags": ["Python", "TensorFlow", "LSTM", "Scikit-learn"],
+            "link": "https://github.com/AaryaInTech/PBL2"
+        },
+        {
+            "title": "Gut Microbiome-based Cardiovascular Prediction using Random Forest",
+            "subtitle": "Python, Scikit-learn, Random Forest",
+            "description": "Developed a Random Forest model to predict cardiovascular disease risk using gut microbiome datasets. Achieved 88.9% classification accuracy through feature preprocessing, model training and evaluation. Performed data preprocessing and model evaluation using Python and Scikit-learn. Co-authored and presented the research paper at the 21st Control Instrumentation Systems Conference (CISCON 2024).",
+            "tags": ["Python", "Scikit-learn", "Random Forest", "Research"],
+            "link": "https://ieeexplore.ieee.org/document/10696178"
+        }
+    ]
+}

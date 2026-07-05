@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design System Color Tokens */
+:root {
+    --primary-pink: #e83e8c;
+    --accent-green: #4caf50;
+    --bg-offwhite: #f7f4ed;
+    --bg-card: #ffffff;
+    --bg-soft: #e9e2d7;
+    --text-dark: #333333;
+    --text-gray: #666666;
+}
+
+.dark {
+    --primary-pink: #e83e8c;
+    --accent-green: #4caf50;
+    --bg-offwhite: #121212;
+    --bg-card: #1e1e1e;
+    --bg-soft: #2c2c2c;
+    --text-dark: #f7f4ed;
+    --text-gray: #a0a0a0;
+}
+
+/* Custom font and smooth scrolling */
+body {
+    font-family: 'VT323', monospace; 
+    background-color: var(--bg-offwhite);
+    color: var(--text-dark);
+    transition: 
+        background-color 0.5s ease, 
+        color 0.5s ease;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Apply Press Start 2P to main headings for major impact */
+h1, h2 {
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Ensure the main h1 in the header maintains dark text in light mode and light text in dark mode */
+header h1 {
+    color: var(--primary-pink);
+}
+
+/* Hide pages by default, to be toggled by JS */
+.page {
+    display: none;
+}
+
+/* --- Splash Screen Styles --- */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-offwhite); 
+    z-index: 50; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    transition: background-color 0.5s ease;
+}
+
+/* Title remains Press Start 2P, Green Text, Pink Shadow */
+.game-title {
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 4px 4px 0 var(--primary-pink); 
+    line-height: 1.1;
+}
+
+/* Ensure non-game title text adapts color on the splash screen */
+#splash-screen p {
+    color: var(--text-gray);
+    transition: color 0.5s ease;
+}
+
+/* Cursive style for HOME page title (Pink text with Black shadow) */
+.hero-title-cursive { 
+    font-family: 'Dancing Script', cursive; 
+    text-shadow: 2px 2px 0 var(--text-dark); 
+    line-height: 1.1;
+}
+
+.game-start-button {
+    border-radius: 0.5rem;
+    border: 3px solid var(--text-dark);
+    box-shadow: 
+        0 0 0 3px var(--accent-green), 
+        0 8px 0 0 var(--primary-pink), 
+        0 12px 0 0 var(--text-dark);
+    transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+}
+.game-start-button:active {
+    transform: translate(0, 8px); 
+    box-shadow: 
+        0 0 0 3px var(--accent-green),
+        0 0 0 0 transparent, 
+        0 4px 0 0 var(--text-dark);
+}
+
+/* --- Custom Cursor Styles --- */
+.cursor {
+    position: fixed;
+    z-index: 9999;
+    pointer-events: none;
+    transition: opacity 0.1s;
+}
+
+#pixel-cursor { 
+    width: 0;
+    height: 0;
+    background: none; 
+    
+    /* Create a large, white triangular shape pointing top-left */
+    border-style: solid;
+    border-width: 25px 15px 15px 25px; 
+    border-color: transparent;
+    border-left-color: #ffffff; 
+    border-top-color: #ffffff; 
+
+    /* Outline and 3D shadow effects */
+    filter: 
+        drop-shadow(1px 0px 0 #333333) 
+        drop-shadow(0px 1px 0 #333333)
+        drop-shadow(-1px 0px 0 #333333) 
+        drop-shadow(0px -1px 0 #333333)
+        drop-shadow(6px 6px 0 #666666);   
+
+    transform: translate(-25px, -25px); 
+    transition: transform 0.05s ease-out, border-color 0.1s;
+}
+
+/* Hover state: switches fill color to portfolio's Primary Pink */
+.hovered #pixel-cursor {
+    border-left-color: var(--primary-pink);
+    border-top-color: var(--primary-pink);
+    transform: scale(1.1) translate(-25px, -25px); 
+    filter: 
+        drop-shadow(1px 0px 0 #333333) 
+        drop-shadow(0px 1px 0 #333333)
+        drop-shadow(-1px 0px 0 #333333) 
+        drop-shadow(0px -1px 0 #333333);
+}
+
+/* Hide standard cursor ONLY on desktop when mouse is active and not on text inputs */
+@media (pointer: fine) {
+    body.custom-cursor-active {
+        cursor: none;
+    }
+    body.custom-cursor-active a, 
+    body.custom-cursor-active button, 
+    body.custom-cursor-active [role="button"],
+    body.custom-cursor-active label {
+        cursor: none !important;
+    }
+}
+
+/* On mobile/touch devices, hide the custom cursor element entirely and show default */
+@media (pointer: coarse) {
+    #pixel-cursor { 
+        display: none !important; 
+    }
+    body { 
+        cursor: auto !important; 
+    }
+}
+
+/* Custom scrollbar for aesthetics */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--bg-soft);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+    background-color: var(--bg-offwhite);
+}
+
+/* --- Native CSS Transitions & Keyframes (Replacements for GSAP) --- */
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pageFadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes splashFadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes itemSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-page-enter {
+    animation: pageFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-page-exit {
+    animation: pageFadeOut 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-splash-exit {
+    animation: splashFadeOut 0.5s cubic-bezier(0.7, 0, 0.3, 1) forwards;
+}
+
+.animate-slide-in {
+    animation: itemSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+/* Staggered Delay classes */
+.delay-1 { animation-delay: 50ms; }
+.delay-2 { animation-delay: 100ms; }
+.delay-3 { animation-delay: 150ms; }
+.delay-4 { animation-delay: 200ms; }
+.delay-5 { animation-delay: 250ms; }
+.delay-6 { animation-delay: 300ms; }
+.delay-7 { animation-delay: 350ms; }
+.delay-8 { animation-delay: 400ms; }
+
+/* Mobile navigation drawer transition classes */
+.mobile-nav-open {
+    transform: translateX(0);
+}
+.mobile-nav-closed {
+    transform: translateX(100%);
+}
